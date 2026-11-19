@@ -332,6 +332,20 @@
     .case-stats strong{font-size:1.35rem}
     .step{grid-template-columns:1fr;gap:2px}
   }
+  /* badge foto: baris panjang dikecilkan agar muat di lingkaran */
+  .seal .seal-in{display:block;line-height:1.25}
+  .seal .seal-long{font-size:.76em;letter-spacing:.01em}
+  /* tombol bahasa EN | ID */
+  .lang{pointer-events:auto;display:flex;gap:2px;margin-left:10px;padding:4px;border-radius:999px;background:rgba(14,26,51,.72);backdrop-filter:blur(12px);border:1px solid var(--line);box-shadow:0 10px 30px -12px rgba(0,0,0,.5)}
+  .lang button{border:0;background:none;color:rgba(244,235,221,.7);font:600 .76rem/1 var(--mono);letter-spacing:.06em;padding:.5rem .6rem;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
+  .lang button:hover{color:var(--cream)}
+  .lang button.on{background:var(--cream);color:var(--navy)}
+  @media (max-width:620px){
+    .nav-pill{gap:0}
+    .nav-pill a{padding:.42rem .6rem;font-size:.78rem}
+    .lang{margin-left:6px}
+    .lang button{padding:.45rem .45rem;font-size:.7rem}
+  }
 </style>
 </head>
 <body>
@@ -344,19 +358,20 @@
       <svg class="sp-trend" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M7 70 L21 52 L36 62 L50 38 L64 46 L79 24 L93 6"/></svg>
     </div>
     <ul class="sp-steps">
-      <li><b>&#10003;</b>Loading data</li>
-      <li><b>&#10003;</b>Cleaning data</li>
-      <li><b>&#10003;</b>Analyzing</li>
-      <li><b>&#10003;</b>Building dashboard</li>
+      <li data-i18n="sp1"><b>&#10003;</b>Loading data</li>
+      <li data-i18n="sp2"><b>&#10003;</b>Cleaning data</li>
+      <li data-i18n="sp3"><b>&#10003;</b>Analyzing</li>
+      <li data-i18n="sp4"><b>&#10003;</b>Building dashboard</li>
     </ul>
   </div>
-  <div class="sp-skip">click anywhere to skip</div>
+  <div class="sp-skip" data-i18n="spskip">click anywhere to skip</div>
 </div>
 <header>
   <nav class="wrap nav" aria-label="Main">
     <div class="nav-pill"><span class="nav-ind" aria-hidden="true"></span>
-      <a href="#home" class="on" data-sec="home">Home</a><a href="#skills" data-sec="skills">About me</a><a href="#work" data-sec="work">Projects</a><a href="#contact" data-sec="contact">Contact</a>
+      <a href="#home" class="on" data-sec="home" data-i18n="nav.home">Home</a><a href="#skills" data-sec="skills" data-i18n="nav.about">About me</a><a href="#work" data-sec="work" data-i18n="nav.work">Projects</a><a href="#contact" data-sec="contact" data-i18n="nav.contact">Contact</a>
     </div>
+    <div class="lang" role="group" aria-label="Language / Bahasa"><button type="button" data-lang="en" aria-label="English">EN</button><button type="button" data-lang="id" aria-label="Bahasa Indonesia">ID</button></div>
   </nav>
 </header>
 
@@ -366,17 +381,17 @@
     <div class="wrap">
       <div class="intro">
         <div class="intro-text">
-          <span class="hello"><span class="wave" aria-hidden="true">👋</span> Hi, I'm</span>
+          <span class="hello" data-i18n="hello"><span class="wave" aria-hidden="true">👋</span> Hi, I'm</span>
           <h1 class="name" aria-label="Muhammad Antarez Qhadafi"><span class="w">Muhammad</span> <span class="w">Antarez</span> <span class="w">Qhadafi</span></h1>
-          <p class="role">Informatics Graduate <span class="dot">·</span> Data &amp; Technology Enthusiast</p>
-          <p class="areas">Interested in <span class="rot" aria-live="polite">Data Analytics</span><span class="caret" aria-hidden="true"></span></p>
-          <p class="lead reveal">An Informatics graduate from Telkom University with hands-on experience from college projects, an internship, and over a year at the International Class Academic Office. There, I helped build web-based administrative systems, manage operational data, and support facility improvement projects.</p>
-          <p class="lead reveal" style="margin-top:12px">I enjoy analyzing problems, organizing information, and building practical solutions that make work easier. I learn fast, adapt quickly, and am eager to take on new challenges and keep growing.</p>
-          <div class="meta reveal"><span><i class="live"></i>Open to opportunities</span></div>
+          <p class="role" data-i18n="role">Informatics Graduate <span class="dot">·</span> Data &amp; Technology Enthusiast</p>
+          <p class="areas"><span data-i18n="areas">Interested in</span> <span class="rot" aria-live="polite">Data Analytics</span><span class="caret" aria-hidden="true"></span></p>
+          <p class="lead reveal" data-i18n="lead1">An Informatics graduate from Telkom University with hands-on experience from college projects, an internship, and over a year at the International Class Academic Office. There, I helped build web-based administrative systems, manage operational data, and support facility improvement projects.</p>
+          <p class="lead reveal" style="margin-top:12px" data-i18n="lead2">I enjoy analyzing problems, organizing information, and building practical solutions that make work easier. I learn fast, adapt quickly, and am eager to take on new challenges and keep growing.</p>
+          <div class="meta reveal"><span><i class="live"></i><span data-i18n="open">Open to opportunities</span></span></div>
           <div class="hero-cta reveal">
-            <a href="#work" class="btn btn-coral">See my work
+            <a href="#work" class="btn btn-coral"><span data-i18n="cta.work">See my work</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a href="#contact" class="btn btn-glass">Contact me</a>
+            <a href="#contact" class="btn btn-glass" data-i18n="cta.contact">Contact me</a>
           </div>
         </div>
         <div class="photo reveal">
@@ -384,39 +399,39 @@
             <span class="photo-fallback">MA</span>
             <img src="assets/photo.jpg" alt="Muhammad Antarez Qhadafi" onerror="this.remove()" />
           </div>
-          <span class="seal" aria-hidden="true">OPEN<br />TO NEW<br />ROLES</span>
+          <span class="seal" aria-hidden="true" data-i18n="seal"><span class="seal-in">OPEN TO<br /><span class="seal-long">OPPORTUNITIES</span></span></span>
           <span class="sparkle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#0E1A33"><path d="M12 5c.6 4.8 2.2 6.4 7 7-4.8.6-6.4 2.2-7 7-.6-4.8-2.2-6.4-7-7 4.8-.6 6.4-2.2 7-7z"/></svg></span>
         </div>
       </div>
 
       <div class="hero-cards" id="skills">
         <div class="hcard left reveal pop" style="--d:.05s">
-          <div class="hcard-head"><span><i><svg viewBox="0 0 24 24" fill="none" stroke="#0E1A33" stroke-width="2.4"><path d="M5 20V10M12 20V4M19 20v-7"/></svg></i>Skills</span></div>
-          <p class="grp">Data &amp; Analytics</p>
+          <div class="hcard-head"><span><i><svg viewBox="0 0 24 24" fill="none" stroke="#0E1A33" stroke-width="2.4"><path d="M5 20V10M12 20V4M19 20v-7"/></svg></i><span data-i18n="h.skills">Skills</span></span></div>
+          <p class="grp" data-i18n="g.da">Data &amp; Analytics</p>
           <div class="chips"><span>Excel</span><span>Power BI</span><span>SQL</span><span>Python</span></div>
-          <p class="grp">Data Management</p>
-          <div class="chips"><span>Data Collection</span><span>Data Cleaning</span><span>Reporting</span><span>Documentation</span></div>
-          <p class="grp">Technical</p>
+          <p class="grp" data-i18n="g.dm">Data Management</p>
+          <div class="chips" data-i18n="chips.dm"><span>Data Collection</span><span>Data Cleaning</span><span>Reporting</span><span>Documentation</span></div>
+          <p class="grp" data-i18n="g.tech">Technical</p>
           <div class="chips"><span>Laravel</span><span>PHP</span><span>MVC</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>MySQL</span><span>Git</span></div>
-          <p class="grp">Core Competencies</p>
-          <div class="chips soft"><span>Analytical Thinking</span><span>Problem Solving</span><span>Fast Learner</span><span>Detail-Oriented</span><span>Adaptability</span><span>Team Collaboration</span><span>Time Management</span></div>
+          <p class="grp" data-i18n="g.core">Core Competencies</p>
+          <div class="chips soft" data-i18n="chips.soft"><span>Analytical Thinking</span><span>Problem Solving</span><span>Fast Learner</span><span>Detail-Oriented</span><span>Adaptability</span><span>Team Collaboration</span><span>Time Management</span></div>
         </div>
         <div class="hcard mid reveal pop" style="--d:.18s">
-          <div class="hcard-head"><span><i class="dark"><svg viewBox="0 0 24 24" fill="none" stroke="#F4EBDD" stroke-width="2.2"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></i>Education</span></div>
-          <h3>Bachelor of Informatics</h3>
-          <p class="sub">Telkom University, Bandung · 2021 to 2025</p>
-          <p class="grp edu-grp">What I learned</p>
-          <ul><li>Web application development, mostly backend (Laravel)</li><li>Machine learning and deep learning: data cleaning, modeling and evaluation</li><li>Final project: <em>Identification of the person entity in English version of CoNLL-2003 Dataset using the CRF, BiLSTM and BiLSTM-CRF models</em></li><li>Data structures, statistics and databases</li><li>Often led my team&#39;s presentations in group projects</li></ul>
+          <div class="hcard-head"><span><i class="dark"><svg viewBox="0 0 24 24" fill="none" stroke="#F4EBDD" stroke-width="2.2"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></i><span data-i18n="h.edu">Education</span></span></div>
+          <h3 data-i18n="edu.deg">Bachelor of Informatics</h3>
+          <p class="sub" data-i18n="edu.sub">Telkom University, Bandung · 2021 to 2025</p>
+          <p class="grp edu-grp" data-i18n="edu.learn">What I learned</p>
+          <ul data-i18n="edu.list"><li>Web application development, mostly backend (Laravel)</li><li>Machine learning and deep learning: data cleaning, modeling and evaluation</li><li>Final project: <em>Identification of the person entity in English version of CoNLL-2003 Dataset using the CRF, BiLSTM and BiLSTM-CRF models</em></li><li>Data structures, statistics and databases</li><li>Often led my team&#39;s presentations in group projects</li></ul>
         </div>
         <div class="hcard right reveal pop" style="--d:.31s">
-          <div class="hcard-head"><span><i><svg viewBox="0 0 24 24" fill="none" stroke="#0E1A33" stroke-width="2.4"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2"/></svg></i>Experience</span><em>Now</em></div>
+          <div class="hcard-head"><span><i><svg viewBox="0 0 24 24" fill="none" stroke="#0E1A33" stroke-width="2.4"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2"/></svg></i><span data-i18n="h.exp">Experience</span></span><em data-i18n="exp.now">Now</em></div>
           <div class="job"><h3>International Class Academic Office</h3>
-          <p class="sub">Telkom University, Bandung · Jul 2025 to present</p>
-          <p class="areas-tag">Technology Development · Data Management · Operations</p>
-          <ul><li>Built Laravel web apps that digitize admin workflows, such as mobility program registration and service requests</li><li>Built an integrated service portal for room reservations, class schedule changes, asset borrowing and facility complaints, with an admin dashboard for room occupancy and service requests</li><li>Collected, cleaned and maintained student registration and internship data</li><li>Coordinated facility revitalization projects with vendors and internal units</li></ul></div>
-          <div class="job past"><div class="job-top"><h4>Web Programmer Intern</h4><em class="past-tag">2024</em></div>
-          <p class="sub">CoE CAATIS, Bandung · Jul to Aug 2024</p>
-          <ul><li>Backend work: CRUD and 7 features for outlet and order data, APIs tested with Postman</li></ul></div>
+          <p class="sub" data-i18n="job1.sub">Telkom University, Bandung · Jul 2025 to present</p>
+          <p class="areas-tag" data-i18n="job1.tag">Technology Development · Data Management · Operations</p>
+          <ul data-i18n="job1.list"><li>Built Laravel web apps that digitize admin workflows, such as mobility program registration and service requests</li><li>Built an integrated service portal for room reservations, class schedule changes, asset borrowing and facility complaints, with an admin dashboard for room occupancy and service requests</li><li>Collected, cleaned and maintained student registration and internship data</li><li>Coordinated facility revitalization projects with vendors and internal units</li></ul></div>
+          <div class="job past"><div class="job-top"><h4 data-i18n="job2.title">Web Programmer Intern</h4><em class="past-tag">2024</em></div>
+          <p class="sub" data-i18n="job2.sub">CoE CAATIS, Bandung · Jul to Aug 2024</p>
+          <ul data-i18n="job2.list"><li>Backend work: CRUD and 7 features for outlet and order data, APIs tested with Postman</li></ul></div>
         </div>
       </div>
     </div>
@@ -426,40 +441,40 @@
   <section class="cream" id="work" style="padding-top:140px">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div><span class="eyebrow">Featured project</span><h2>From a question to a dashboard</h2><span class="sec-line"></span></div>
-        <p>One project I am proud of, from question to dashboard. The rest live on my GitHub.</p>
+        <div><span class="eyebrow" data-i18n="work.eye">Featured project</span><h2 data-i18n="work.h">From a question to a dashboard</h2><span class="sec-line"></span></div>
+        <p data-i18n="work.p">One project I am proud of, from question to dashboard. The rest live on my GitHub.</p>
       </div>
 
       <article class="case reveal">
         <div class="case-body">
-          <span class="card-kind">Case study · Self-initiated data analysis</span>
+          <span class="card-kind" data-i18n="case.kind">Case study · Self-initiated data analysis</span>
           <h3>Classroom Occupancy Analysis</h3>
           <div><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">SQL</span><span class="tag">Streamlit</span><span class="tag">Power BI</span></div>
           <div class="steps">
-            <div class="step"><b>Question</b><span>The building is being renovated down to 32 classrooms. Are rooms really full, and how should faculties share them?</span></div>
-            <div class="step"><b>Approach</b><span>Cleaned the real timetable (290 weekly classes), measured use per room every 30 minutes, then built a faculty room plan that keeps every class time as it is.</span></div>
-            <div class="step"><b>Outcome</b><span>Rooms were used 42% of the time on average. Every class fits the plan, and reserve rooms stay free even at the busiest hour.</span></div>
+            <div class="step" data-i18n="step.q"><b>Question</b><span>The building is being renovated down to 32 classrooms. Are rooms really full, and how should faculties share them?</span></div>
+            <div class="step" data-i18n="step.a"><b>Approach</b><span>Cleaned the real timetable (290 weekly classes), measured use per room every 30 minutes, then built a faculty room plan that keeps every class time as it is.</span></div>
+            <div class="step" data-i18n="step.o"><b>Outcome</b><span>Rooms were used 42% of the time on average. Every class fits the plan, and reserve rooms stay free even at the busiest hour.</span></div>
           </div>
           <div class="case-stats">
-            <div><strong>42%</strong><small>average room use</small></div>
-            <div><strong>253/253</strong><small>classes placed</small></div>
-            <div><strong>5 of 7</strong><small>reserve rooms always free</small></div>
+            <div data-i18n="st1"><strong>42%</strong><small>average room use</small></div>
+            <div data-i18n="st2"><strong>253/253</strong><small>classes placed</small></div>
+            <div data-i18n="st3"><strong>5 of 7</strong><small>reserve rooms always free</small></div>
           </div>
           <div class="case-actions">
-            <a class="btn btn-ink" href="https://icao-classroom-occupancy.streamlit.app/" target="_blank" rel="noopener">Open live dashboard</a>
-            <a class="btn btn-line" href="https://github.com/antarezQ/classroom_occupancy_analysis" target="_blank" rel="noopener">Read the repo</a>
+            <a class="btn btn-ink" href="https://icao-classroom-occupancy.streamlit.app/" target="_blank" rel="noopener" data-i18n="btn.live">Open live dashboard</a>
+            <a class="btn btn-line" href="https://github.com/antarezQ/classroom_occupancy_analysis" target="_blank" rel="noopener" data-i18n="btn.repo">Read the repo</a>
           </div>
         </div>
         <figure class="case-media reveal from-right" style="--d:.2s">
           <img src="assets/occupancy.jpg" alt="Power BI page showing room use per faculty in the scenario" loading="lazy" />
           <img class="second" src="assets/occupancy-dashboard.jpg" alt="Streamlit dashboard for finding a free room" loading="lazy" />
-          <figcaption>Power BI report, and the Streamlit dashboard built for staff to find free rooms.</figcaption>
+          <figcaption data-i18n="figcap">Power BI report, and the Streamlit dashboard built for staff to find free rooms.</figcaption>
         </figure>
       </article>
 
       <a class="more reveal" href="https://github.com/antarezQ?tab=repositories" target="_blank" rel="noopener">
-        <div><strong>See my other projects</strong><span>Web apps, dashboards and team projects, all on GitHub.</span></div>
-        <span class="btn btn-coral">Open GitHub
+        <div data-i18n="more"><strong>See my other projects</strong><span>Web apps, dashboards and team projects, all on GitHub.</span></div>
+        <span class="btn btn-coral"><span data-i18n="btn.gh">Open GitHub</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
       </a>
     </div>
@@ -468,9 +483,9 @@
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="wrap reveal">
-      <span class="eyebrow">Contact</span>
-      <h2>Got data that needs a <em>second look?</em></h2><span class="sec-line" style="margin:0 auto 18px"></span>
-      <p>I'm open to roles in data, IT and operations. The fastest way to reach me is email.</p>
+      <span class="eyebrow" data-i18n="c.eye">Contact</span>
+      <h2 data-i18n="c.h">Got data that needs a <em>second look?</em></h2><span class="sec-line" style="margin:0 auto 18px"></span>
+      <p data-i18n="c.p">I'm open to roles in data, IT and operations. The fastest way to reach me is email.</p>
       <div class="mailbox">
         <a class="mail-big" href="mailto:maqghifari20@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>maqghifari20@gmail.com</span></a>
         <button class="copy" type="button" data-copy="maqghifari20@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg><span>Copy</span></button>
@@ -484,21 +499,21 @@
   <div class="wrap foot-grid">
     <div class="foot-about reveal from-left">
       <h3>Muhammad Antarez Qhadafi</h3>
-      <p>Informatics graduate and data &amp; technology enthusiast. I like turning messy information into something people can actually use.</p>
-      <div class="status-line"><i class="live"></i>Open to opportunities <span class="sep">·</span> <span class="clock" aria-label="Local time">--:--</span> WIB</div>
+      <p data-i18n="f.about">Informatics graduate and data &amp; technology enthusiast. I like turning messy information into something people can actually use.</p>
+      <div class="status-line"><i class="live"></i><span data-i18n="open2">Open to opportunities</span> <span class="sep">·</span> <span class="clock" aria-label="Local time">--:--</span> WIB</div>
     </div>
     <div class="foot-col reveal">
-      <h4>Quick links</h4>
-      <a href="#home">Home</a><a href="#skills">About me</a><a href="#work">Projects</a><a href="#contact">Contact</a>
+      <h4 data-i18n="f.links">Quick links</h4>
+      <a href="#home" data-i18n="nav.home">Home</a><a href="#skills" data-i18n="nav.about">About me</a><a href="#work" data-i18n="nav.work">Projects</a><a href="#contact" data-i18n="nav.contact">Contact</a>
     </div>
     <div class="foot-col reveal">
-      <h4>What I can help with</h4>
-      <span>Data collection &amp; cleaning</span><span>Reports &amp; dashboards</span><span>Data management</span><span>Web-based admin tools</span>
+      <h4 data-i18n="f.help">What I can help with</h4>
+      <span data-i18n="f.h1">Data collection &amp; cleaning</span><span data-i18n="f.h2">Reports &amp; dashboards</span><span data-i18n="f.h3">Data management</span><span data-i18n="f.h4">Web-based admin tools</span>
     </div>
   </div>
   <div class="wrap connect reveal">
-    <h4>Let's connect</h4>
-    <p>Say hi, ask about my work, or just share a dataset you find interesting.</p>
+    <h4 data-i18n="f.connect">Let's connect</h4>
+    <p data-i18n="f.connectp">Say hi, ask about my work, or just share a dataset you find interesting.</p>
     <div class="socials">
       <a href="https://github.com/antarezQ" target="_blank" rel="noopener" aria-label="GitHub" data-tip="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.46-1.11-1.46-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg></a>
       <a href="https://www.linkedin.com/in/antarezq/" target="_blank" rel="noopener" aria-label="LinkedIn" data-tip="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.01 5 2.5 2.5 0 01.01-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.4V21h-4v-5.8c0-1.38-.03-3.16-1.93-3.16-1.93 0-2.22 1.5-2.22 3.06V21H9z"/></svg></a>
@@ -528,8 +543,9 @@
     [...t].forEach((c,ci)=>{ const sp=document.createElement('span'); sp.className='ch'; sp.textContent=c;
       sp.style.animationDelay=(0.15+wi*0.18+ci*0.035)+'s'; w.appendChild(sp); });
   });
-  // rotating role
-  const roles=['Data Analytics','Data Management','Technology'];
+  // rotating role (ikut bahasa aktif)
+  const ROLES={en:['Data Analytics','Data Management','Technology'],id:['Analisis Data','Manajemen Data','Teknologi']};
+  let roles=ROLES.en;
   const rot=document.querySelector('.rot'); let ri=0;
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const typeWord=(w,cb)=>{let n=0;const t=setInterval(()=>{rot.textContent=w.slice(0,++n); if(n>=w.length){clearInterval(t);cb&&cb();}},55);};
@@ -598,10 +614,10 @@
     try{ await navigator.clipboard.writeText(v); ok=true; }catch(e){
       const ta=document.createElement('textarea'); ta.value=v; document.body.appendChild(ta); ta.select();
       try{ ok=document.execCommand('copy'); }catch(_){} ta.remove(); }
-    toast.textContent= ok ? 'Email copied' : v;
-    cbtn.querySelector('span').textContent= ok ? 'Copied' : 'Copy';
+    toast.textContent= ok ? T('Email copied','Email disalin') : v;
+    cbtn.querySelector('span').textContent= ok ? T('Copied','Tersalin') : T('Copy','Salin');
     toast.classList.add('show');
-    setTimeout(()=>{ toast.classList.remove('show'); cbtn.querySelector('span').textContent='Copy'; },1800);
+    setTimeout(()=>{ toast.classList.remove('show'); cbtn.querySelector('span').textContent=T('Copy','Salin'); },1800);
   });
   // local time (WIB)
   const clk=document.querySelector('.clock');
@@ -629,6 +645,113 @@
     requestAnimationFrame(loop);
     sp.addEventListener('click',finish);
     setTimeout(finish,6000);
+  })();
+</script>
+<script>
+  // ===== Bahasa: EN / ID =====
+  // Teks Inggris diambil dari HTML; terjemahan Indonesia ada di I18N_ID.
+  // Bahasa bisa dipilih lewat tombol EN|ID, atau link langsung ?lang=id / ?lang=en.
+  const I18N_ID = {
+ "sp1": "<b>&#10003;</b>Memuat data",
+ "sp2": "<b>&#10003;</b>Membersihkan data",
+ "sp3": "<b>&#10003;</b>Menganalisis",
+ "sp4": "<b>&#10003;</b>Membuat dashboard",
+ "spskip": "klik di mana saja untuk melewati",
+ "nav.home": "Beranda",
+ "nav.about": "Tentang",
+ "nav.work": "Proyek",
+ "nav.contact": "Kontak",
+ "hello": "<span class=\"wave\" aria-hidden=\"true\">👋</span> Halo, saya",
+ "role": "Lulusan Informatika <span class=\"dot\">·</span> Antusias di Bidang Data &amp; Teknologi",
+ "areas": "Tertarik pada",
+ "lead1": "Lulusan Informatika dari Telkom University dengan pengalaman langsung dari proyek kuliah, magang, dan lebih dari setahun bekerja di International Class Academic Office. Di sana, saya ikut membangun sistem administrasi berbasis web, mengelola data operasional, dan mendukung proyek perbaikan fasilitas.",
+ "lead2": "Saya senang menganalisis masalah, merapikan informasi, dan membangun solusi praktis yang memudahkan pekerjaan. Saya cepat belajar, mudah beradaptasi, dan siap menghadapi tantangan baru untuk terus berkembang.",
+ "open": "Terbuka untuk peluang kerja",
+ "cta.work": "Lihat karya saya",
+ "cta.contact": "Hubungi saya",
+ "seal": "<span class=\"seal-in\">TERBUKA<br />UNTUK<br />PELUANG</span>",
+ "h.skills": "Keahlian",
+ "g.da": "Data &amp; Analitik",
+ "g.dm": "Manajemen Data",
+ "g.tech": "Teknis",
+ "g.core": "Kompetensi Inti",
+ "chips.dm": "<span>Pengumpulan Data</span><span>Pembersihan Data</span><span>Pelaporan</span><span>Dokumentasi</span>",
+ "chips.soft": "<span>Berpikir Analitis</span><span>Pemecahan Masalah</span><span>Cepat Belajar</span><span>Teliti</span><span>Mudah Beradaptasi</span><span>Kerja Sama Tim</span><span>Manajemen Waktu</span>",
+ "h.edu": "Pendidikan",
+ "edu.deg": "Sarjana Informatika",
+ "edu.sub": "Telkom University, Bandung · 2021 sampai 2025",
+ "edu.learn": "Yang saya pelajari",
+ "edu.list": "<li>Pengembangan aplikasi web, terutama backend (Laravel)</li><li>Machine learning dan deep learning: pembersihan data, pemodelan, dan evaluasi</li><li>Tugas akhir: <em>Identifikasi Entitas Orang dalam Dataset CoNLL-2003 versi bahasa Inggris menggunakan model CRF, BiLSTM, dan BiLSTM-CRF</em></li><li>Struktur data, statistika, dan basis data</li><li>Sering memimpin presentasi tim dalam proyek kelompok</li>",
+ "h.exp": "Pengalaman",
+ "exp.now": "Kini",
+ "job1.sub": "Telkom University, Bandung · Jul 2025 sampai sekarang",
+ "job1.tag": "Pengembangan Teknologi · Manajemen Data · Operasional",
+ "job1.list": "<li>Membangun aplikasi web Laravel untuk mendigitalkan alur kerja administrasi, seperti pendaftaran program mobilitas dan permintaan layanan</li><li>Membangun portal layanan terpadu untuk reservasi ruang, perubahan jadwal kelas, peminjaman aset, dan keluhan fasilitas, dengan dashboard admin untuk okupansi ruang dan permintaan layanan</li><li>Mengumpulkan, membersihkan, dan memelihara data pendaftaran mahasiswa serta data magang</li><li>Mengoordinasikan proyek revitalisasi fasilitas bersama vendor dan unit internal</li>",
+ "job2.title": "Magang Web Programmer",
+ "job2.sub": "CoE CAATIS, Bandung · Jul sampai Agu 2024",
+ "job2.list": "<li>Pekerjaan backend: CRUD dan 7 fitur untuk data outlet dan pesanan, API diuji dengan Postman</li>",
+ "work.eye": "Proyek unggulan",
+ "work.h": "Dari pertanyaan menjadi dashboard",
+ "work.p": "Satu proyek yang saya banggakan, dari pertanyaan sampai dashboard. Proyek lainnya ada di GitHub saya.",
+ "case.kind": "Studi kasus · Analisis data atas inisiatif sendiri",
+ "step.q": "<b>Pertanyaan</b><span>Gedung sedang direnovasi hingga tersisa 32 ruang kelas. Apakah ruangan benar-benar penuh, dan bagaimana fakultas sebaiknya berbagi ruang?</span>",
+ "step.a": "<b>Pendekatan</b><span>Membersihkan jadwal kuliah asli (290 kelas per minggu), mengukur pemakaian tiap ruang setiap 30 menit, lalu menyusun rencana ruang per fakultas tanpa mengubah satu pun jam kuliah.</span>",
+ "step.o": "<b>Hasil</b><span>Rata-rata ruang hanya terpakai 42% dari waktu. Semua kelas tertampung dalam rencana, dan ruang cadangan tetap kosong bahkan di jam tersibuk.</span>",
+ "st1": "<strong>42%</strong><small>rata-rata pemakaian ruang</small>",
+ "st2": "<strong>253/253</strong><small>kelas tertampung</small>",
+ "st3": "<strong>5 dari 7</strong><small>ruang cadangan selalu kosong</small>",
+ "btn.live": "Buka dashboard live",
+ "btn.repo": "Lihat repo",
+ "figcap": "Laporan Power BI, dan dashboard Streamlit yang dibuat agar staf bisa mencari ruang kosong.",
+ "more": "<strong>Lihat proyek lainnya</strong><span>Aplikasi web, dashboard, dan proyek tim, semuanya di GitHub.</span>",
+ "btn.gh": "Buka GitHub",
+ "c.eye": "Kontak",
+ "c.h": "Punya data yang perlu <em>dilihat lebih dalam?</em>",
+ "c.p": "Saya terbuka untuk peran di bidang data, IT, dan operasional. Cara tercepat menghubungi saya adalah lewat email.",
+ "toast": "Email disalin",
+ "f.about": "Lulusan Informatika yang antusias di bidang data &amp; teknologi. Saya senang mengubah informasi yang berantakan menjadi sesuatu yang benar-benar bisa dipakai.",
+ "open2": "Terbuka untuk peluang kerja",
+ "f.links": "Tautan cepat",
+ "f.help": "Yang bisa saya bantu",
+ "f.h1": "Pengumpulan &amp; pembersihan data",
+ "f.h2": "Laporan &amp; dashboard",
+ "f.h3": "Manajemen data",
+ "f.h4": "Aplikasi admin berbasis web",
+ "f.connect": "Mari terhubung",
+ "f.connectp": "Sapa saya, tanya tentang pekerjaan saya, atau bagikan dataset yang menurutmu menarik."
+};
+  let LANG = 'en';
+  const T = (en, id) => LANG === 'id' ? id : en;
+  const i18nEls = [...document.querySelectorAll('[data-i18n]')];
+  i18nEls.forEach(el => { el.dataset.en = el.innerHTML; });
+  const META = {
+    en: {title: document.title, desc: document.querySelector('meta[name="description"]')?.content || ''},
+    id: {title: 'Antarez Qhadafi · Portofolio',
+         desc: 'Muhammad Antarez Qhadafi, lulusan Informatika yang membangun aplikasi web dan mengolah data di International Class Academic Office, Telkom University.'}
+  };
+  function setLang(lang, save) {
+    LANG = lang === 'id' ? 'id' : 'en';
+    document.documentElement.lang = LANG;
+    i18nEls.forEach(el => {
+      const html = LANG === 'id' ? I18N_ID[el.dataset.i18n] : el.dataset.en;
+      if (html !== undefined && el.innerHTML !== html) el.innerHTML = html;
+    });
+    document.title = META[LANG].title;
+    const md = document.querySelector('meta[name="description"]'); if (md) md.content = META[LANG].desc;
+    const cp = document.querySelector('.copy span'); if (cp) cp.textContent = T('Copy', 'Salin');
+    document.querySelectorAll('.lang button').forEach(b => {
+      b.classList.toggle('on', b.dataset.lang === LANG); b.setAttribute('aria-pressed', b.dataset.lang === LANG);
+    });
+    if (typeof ROLES !== 'undefined') { roles = ROLES[LANG]; if (typeof ri !== 'undefined' && rot) rot.textContent = roles[ri % roles.length]; }
+    if (typeof moveInd === 'function') setTimeout(moveInd, 0);
+    if (save) { try { localStorage.setItem('aq-lang', LANG); } catch (e) {} }
+  }
+  (function initLang() {
+    let lang = null;
+    try { lang = new URLSearchParams(location.search).get('lang'); } catch (e) {}
+    if (lang !== 'id' && lang !== 'en') { try { lang = localStorage.getItem('aq-lang'); } catch (e) {} }
+    setLang(lang || 'en', false);
+    document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang, true)));
   })();
 </script>
 </body>
